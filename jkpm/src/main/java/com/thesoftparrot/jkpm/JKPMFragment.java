@@ -1,6 +1,5 @@
 package com.thesoftparrot.jkpm;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,7 +9,6 @@ import android.provider.Settings;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -22,7 +20,7 @@ public abstract class JKPMFragment extends Fragment {
 
     protected void askRuntimePermissions(Context context, final String... PERMISSIONS){
         if(!areAllPermissionsEnabled(context, PERMISSIONS))
-            ActivityCompat.requestPermissions((Activity) context, PERMISSIONS, PERMISSION_REQUEST_CODE);
+            requestPermissions(PERMISSIONS, PERMISSION_REQUEST_CODE);
     }
 
     protected boolean areAllPermissionsEnabled(Context context, String... PERMISSIONS){
